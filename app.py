@@ -4,6 +4,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 st.header("Incentive Calculator")
+
+video_file = open("bean.mp4", "rb")
+video_bytes = video_file.read()
+
 options = ["Annual Calculator", "Non Annual Calculator"]
 
 val = st.radio("choose the type of calculator: ", options, index=None)
@@ -178,5 +182,5 @@ if val is not None:
             st.balloons()
         else:
             st.warning("Something Wrong", icon="⚠️")
-else:
-    st.caption("Mr bean")
+else:    
+    st.video(video_bytes)
