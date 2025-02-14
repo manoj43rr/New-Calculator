@@ -183,4 +183,4 @@ if val is not None:
         else:
             st.warning("Something Wrong", icon="⚠️")
 else:    
-    st.video(video_bytes)
+    st.video(video_bytes, autoplay=True, muted=True, loop=True)
