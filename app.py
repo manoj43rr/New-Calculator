@@ -133,7 +133,7 @@ if val is not None:
             incentiveLogic1 = []
             for i in range(len(persons)):
                 if percAchieved[i] >= 85.0:
-                    incentive = assignedAmounts[i] * (percAchieved[i] / 100) * ((((percAchieved[i] / 100) - 0.85) / 10) + 0.01)
+                    incentive = assignedAmounts[i] * (percAchieved[i] / 100) * ((((percAchieved[i] / 100) - 0.85) / 10) + 0.015)
                     incentiveLogic1.append(round(incentive))
                 else:
                     incentiveLogic1.append(0)
