@@ -58,8 +58,8 @@ if val is not None:
 
             for i in range(len(persons)):
                 if percAchieved[i] >= 70.0:
-                    row = incentiveData[(incentiveData["start_range"] <= percAchieved[i]) & 
-                                        (percAchieved[i] <= incentiveData["end_range"])]
+                    row = incentiveData[(incentiveData["start_range"] <= round(percAchieved[i])) & 
+                                        (round(percAchieved[i]) <= incentiveData["end_range"])]
                     
                     if not row.empty:
                         incentive = assignedAmounts[i] * (percAchieved[i] / 100) * row[row.columns[2]].iloc[0]
