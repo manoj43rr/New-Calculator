@@ -84,16 +84,15 @@ if val is not None:
             colors = generate_smooth_colors(len(finalData["Individuals"]))
 
             for i, individual in enumerate(finalData["Individuals"]):
-                ax.bar(x[i] + width / 2, finalData["incentiveLogic2"][i], width, 
-                    label=individual, color=colors[i])
-                ax.text(x[i] + width/2, finalData["incentiveLogic2"][i] + 5, str(finalData["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="semibold")
+                ax.bar(x[i], finalData["incentiveLogic2"][i], width, label=individual, color=colors[i])
+                ax.text(x[i], finalData["incentiveLogic2"][i] + 5, str(finalData["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="semibold")
 
             ax.set_xlabel("Individuals")
             ax.set_ylabel("Incentives")
             ax.set_title("Comparison of Incentive Logic")
             ax.set_xticks(x)
             ax.set_yticks([])
-            ax.set_xticklabels(finalData["Individuals"], rotation=45)
+            ax.set_xticklabels(finalData["Individuals"], rotation=45, fontsize = 10)
             ax.spines["right"].set_visible(False)
             ax.spines["top"].set_visible(False)
             ax.spines["left"].set_visible(False)
@@ -171,15 +170,15 @@ if val is not None:
             colors = generate_smooth_colors(len(finalData["Individuals"]))
 
             for i, individual in enumerate(finalData["Individuals"]):
-                ax.bar(x[i] + width / 2, finalData["incentiveLogic2"][i], width, label=individual, color=colors[i])
-                ax.text(x[i] + width/2, finalData["incentiveLogic2"][i] + 5, str(finalData["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="semibold")
+                ax.bar(x[i], finalData["incentiveLogic2"][i], width, label=individual, color=colors[i])
+                ax.text(x[i], finalData["incentiveLogic2"][i] + 5, str(finalData["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="semibold")
 
 
             ax.set_xlabel("Individuals")
             ax.set_ylabel("Incentives")
             ax.set_title("Comparison of Incentive Logic")
             ax.set_xticks(x)
-            ax.set_xticklabels(finalData["Individuals"], rotation=45)
+            ax.set_xticklabels(finalData["Individuals"], rotation=45, fontsize = 10)
             ax.spines["right"].set_visible(False)
             ax.spines["top"].set_visible(False)
             ax.spines["bottom"].set_visible(False)
