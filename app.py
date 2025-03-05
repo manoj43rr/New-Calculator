@@ -73,7 +73,8 @@ if val is not None:
 
             st.dataframe(finalData)
 
-            fig, ax = plt.subplots()
+            #fig, ax = plt.subplots()
+            fig, ax = plt.subplots(figsize=(6, 4))
             x = np.arange(len(finalData["Individuals"]))
             width = 0.4
 
@@ -85,7 +86,7 @@ if val is not None:
             for i, individual in enumerate(finalData["Individuals"]):
                 ax.bar(x[i] + width / 2, finalData["incentiveLogic2"][i], width, 
                     label=individual, color=colors[i])
-                ax.text(x[i] + width/2, finalData["incentiveLogic2"][i] + 5, str(finalData["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="bold")
+                ax.text(x[i] + width/2, finalData["incentiveLogic2"][i] + 5, str(finalData["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="semibold")
 
             ax.set_xlabel("Individuals")
             ax.set_ylabel("Incentives")
@@ -159,7 +160,8 @@ if val is not None:
 
             st.dataframe(finalData)
 
-            fig, ax = plt.subplots()
+            #fig, ax = plt.subplots()
+            fig, ax = plt.subplots(figsize=(6, 4))
             x = np.arange(len(finalData["Individuals"]))
             width = 0.4
 
@@ -170,7 +172,7 @@ if val is not None:
 
             for i, individual in enumerate(finalData["Individuals"]):
                 ax.bar(x[i] + width / 2, finalData["incentiveLogic2"][i], width, label=individual, color=colors[i])
-                ax.text(x[i] + width/2, finalData["incentiveLogic2"][i] + 5, str(finalData["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="bold")
+                ax.text(x[i] + width/2, finalData["incentiveLogic2"][i] + 5, str(finalData["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="semibold")
 
 
             ax.set_xlabel("Individuals")
