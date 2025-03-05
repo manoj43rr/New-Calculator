@@ -85,7 +85,7 @@ if val is not None:
             for i, individual in enumerate(finalData["Individuals"]):
                 ax.bar(x[i] + width / 2, finalData["incentiveLogic2"][i], width, 
                     label=individual, color=colors[i])
-                ax.text(x[i] + width/2, finalData["incentiveLogic2"][i] + 5, str(final["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="bold")
+                ax.text(x[i] + width/2, finalData["incentiveLogic2"][i] + 5, str(finalData["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="bold")
 
             ax.set_xlabel("Individuals")
             ax.set_ylabel("Incentives")
@@ -170,7 +170,7 @@ if val is not None:
 
             for i, individual in enumerate(finalData["Individuals"]):
                 ax.bar(x[i] + width / 2, finalData["incentiveLogic2"][i], width, label=individual, color=colors[i])
-                ax.text(x[i] + width/2, finalData["incentiveLogic2"][i] + 5, str(final["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="bold")
+                ax.text(x[i] + width/2, finalData["incentiveLogic2"][i] + 5, str(finalData["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="bold")
 
 
             ax.set_xlabel("Individuals")
