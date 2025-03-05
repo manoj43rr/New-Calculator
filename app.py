@@ -88,10 +88,10 @@ if val is not None:
             x = np.arange(len(finalData["Individuals"]))
             width = 0.4
 
-            colors = list(mcolors.TABLEAU_COLORS.values())
+            def generate_smooth_colors(n):
+                return [mcolors.hsv_to_rgb((i / n, 0.6 + random.uniform(0, 0.2), 0.8)) for i in range(n)]
 
-            while len(colors) < len(finalData["Individuals"]):
-                colors.append("#" + ''.join(random.choices('0123456789ABCDEF', k=6)))
+            colors = generate_smooth_colors(len(finalData["Individuals"]))
 
             for i, individual in enumerate(finalData["Individuals"]):
                 ax.bar(x[i] + width / 2, finalData["incentiveLogic2"][i], width, 
