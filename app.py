@@ -88,7 +88,7 @@ if val is not None:
                 ax.text(x[i], finalData["incentiveLogic2"][i] + 5, str(finalData["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="light")
 
             ax.set_xlabel("Individuals")
-            ax.set_ylabel("Incentives")
+            #ax.set_ylabel("Incentives")
             ax.set_title("Comparison of Incentive Logic")
             ax.set_xticks(x)
             ax.set_yticks([])
@@ -175,7 +175,7 @@ if val is not None:
 
 
             ax.set_xlabel("Individuals")
-            ax.set_ylabel("Incentives")
+            #ax.set_ylabel("Incentives")
             ax.set_title("Comparison of Incentive Logic")
             ax.set_xticks(x)
             ax.set_xticklabels(finalData["Individuals"], rotation=45, fontsize = 10)
