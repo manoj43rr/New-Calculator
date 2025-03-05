@@ -48,16 +48,6 @@ if val is not None:
                 else:
                     percAchieved.append(round((achievedAmounts[i] / assignedAmounts[i]) * 100.00, 3))
 
-            """
-            incentiveLogic1 = []
-            for i in range(len(persons)):
-                if percAchieved[i] >= 70.0:
-                    incentive = assignedAmounts[i] * (percAchieved[i] / 100) * ((((percAchieved[i] / 100) - 0.7) / 10) + 0.005)
-                    incentiveLogic1.append(round(incentive))
-                else:
-                    incentiveLogic1.append(0)
-            """
-
             incentiveData = pd.read_excel("AnnualIncentiveData.xlsx")
             incentiveLogic2 = []
 
@@ -78,7 +68,6 @@ if val is not None:
                 "Individuals" : persons,
                 "Assigned Amount" : assignedAmounts,
                 "Percentage of renwals Done": percAchieved,
-                #"incentiveLogic1" : incentiveLogic1,
                 "incentiveLogic2" : incentiveLogic2,
             })
 
@@ -104,8 +93,9 @@ if val is not None:
             ax.set_xticklabels(finalData["Individuals"], rotation=45)
             ax.spines["right"].set_visible(False)
             ax.spines["top"].set_visible(False)
+            ax.spines["bottom"].set_visible(False)
+            ax.spines["left"].set_visible(False)
             ax.legend()
-
             st.pyplot(fig)
             st.balloons()
         else:
@@ -143,14 +133,6 @@ if val is not None:
                 else:
                     percAchieved.append(round((achievedAmounts[i] / assignedAmounts[i]) * 100.00, 3))
 
-            incentiveLogic1 = []
-            for i in range(len(persons)):
-                if percAchieved[i] >= 85.0:
-                    incentive = assignedAmounts[i] * (percAchieved[i] / 100) * ((((percAchieved[i] / 100) - 0.85) / 10) + 0.015)
-                    incentiveLogic1.append(round(incentive))
-                else:
-                    incentiveLogic1.append(0)
-
             incentiveData = pd.read_excel("nonAnnualIncentiveData.xlsx")
             incentiveLogic2 = []
 
@@ -171,7 +153,6 @@ if val is not None:
                 "Individuals" : persons,
                 "Assigned Amount" : assignedAmounts,
                 "Percentage of renwals Done": percAchieved,
-                "incentiveLogic1" : incentiveLogic1,
                 "incentiveLogic2" : incentiveLogic2,
             })
 
@@ -181,17 +162,27 @@ if val is not None:
             x = np.arange(len(finalData["Individuals"]))
             width = 0.4
 
-            ax.bar(x - width / 2, finalData["incentiveLogic1"], width, label="Incentive Logic 1", color='blue')
-            ax.bar(x + width / 2, finalData["incentiveLogic2"], width, label="Incentive Logic 2", color='orange')
+            def generate_smooth_colors(n):
+                return [mcolors.hsv_to_rgb((i / n, 0.6 + random.uniform(0, 0.2), 0.8)) for i in range(n)]
+
+            colors = generate_smooth_colors(len(finalData["Individuals"]))
+
+            for i, individual in enumerate(finalData["Individuals"]):
+                ax.bar(x[i] + width / 2, finalData["incentiveLogic2"][i], width, 
+                    label=individual, color=colors[i])
 
             ax.set_xlabel("Individuals")
             ax.set_ylabel("Incentives")
             ax.set_title("Comparison of Incentive Logic")
             ax.set_xticks(x)
             ax.set_xticklabels(finalData["Individuals"], rotation=45)
+            ax.spines["right"].set_visible(False)
+            ax.spines["top"].set_visible(False)
+            ax.spines["bottom"].set_visible(False)
+            ax.spines["left"].set_visible(False)
             ax.legend()
-
             st.pyplot(fig)
+
             st.balloons()
         else:
             st.warning("Something Wrong", icon="⚠️")
