@@ -52,7 +52,7 @@ if val is not None:
             incentiveLogic2 = []
 
             for i in range(len(persons)):
-                if percAchieved[i] >= 70.0:
+                if percAchieved[i] >= 64.9:
                     row = incentiveData[(incentiveData["start_range"] <= round(percAchieved[i])) & 
                                         (round(percAchieved[i]) <= incentiveData["end_range"])]
                     
@@ -138,7 +138,7 @@ if val is not None:
             incentiveLogic2 = []
 
             for i in range(len(persons)):
-                if percAchieved[i] >= 85.0:
+                if percAchieved[i] >= 84.9:
                     row = incentiveData[(incentiveData["start_range"] <= percAchieved[i]) & 
                                         (percAchieved[i] <= incentiveData["end_range"])]
                     
