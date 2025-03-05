@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import random
+import matplotlib.colors as mcolors
+
 
 st.header("Incentive Calculator")
 
@@ -45,6 +48,7 @@ if val is not None:
                 else:
                     percAchieved.append(round((achievedAmounts[i] / assignedAmounts[i]) * 100.00, 3))
 
+            """
             incentiveLogic1 = []
             for i in range(len(persons)):
                 if percAchieved[i] >= 70.0:
@@ -52,6 +56,7 @@ if val is not None:
                     incentiveLogic1.append(round(incentive))
                 else:
                     incentiveLogic1.append(0)
+            """
 
             incentiveData = pd.read_excel("AnnualIncentiveData.xlsx")
             incentiveLogic2 = []
@@ -73,7 +78,7 @@ if val is not None:
                 "Individuals" : persons,
                 "Assigned Amount" : assignedAmounts,
                 "Percentage of renwals Done": percAchieved,
-                "incentiveLogic1" : incentiveLogic1,
+                #"incentiveLogic1" : incentiveLogic1,
                 "incentiveLogic2" : incentiveLogic2,
             })
 
@@ -83,14 +88,22 @@ if val is not None:
             x = np.arange(len(finalData["Individuals"]))
             width = 0.4
 
-            ax.bar(x - width / 2, finalData["incentiveLogic1"], width, label="Incentive Logic 1", color='blue')
-            ax.bar(x + width / 2, finalData["incentiveLogic2"], width, label="Incentive Logic 2", color='orange')
+            colors = list(mcolors.TABLEAU_COLORS.values())
+
+            while len(colors) < len(finalData["Individuals"]):
+                colors.append("#" + ''.join(random.choices('0123456789ABCDEF', k=6)))
+
+            for i, individual in enumerate(finalData["Individuals"]):
+                ax.bar(x[i] + width / 2, finalData["incentiveLogic2"][i], width, 
+                    label=individual, color=colors[i])
 
             ax.set_xlabel("Individuals")
             ax.set_ylabel("Incentives")
             ax.set_title("Comparison of Incentive Logic")
             ax.set_xticks(x)
             ax.set_xticklabels(finalData["Individuals"], rotation=45)
+            ax.spines["right"].set_visible(False)
+            ax.spines["top"].set_visible(False)
             ax.legend()
 
             st.pyplot(fig)
