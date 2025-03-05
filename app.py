@@ -85,14 +85,14 @@ if val is not None:
 
             for i, individual in enumerate(finalData["Individuals"]):
                 ax.bar(x[i], finalData["incentiveLogic2"][i], width, label=individual, color=colors[i])
-                ax.text(x[i], finalData["incentiveLogic2"][i] + 5, str(finalData["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="light")
+                ax.text(x[i], finalData["incentiveLogic2"][i] + 5, str(finalData["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="light", fontstyle="italic")
 
             ax.set_xlabel("Individuals")
             #ax.set_ylabel("Incentives")
             ax.set_title("Comparison of Incentive Logic")
             ax.set_xticks(x)
             ax.set_yticks([])
-            ax.set_xticklabels(finalData["Individuals"], rotation=45, fontsize = 10)
+            ax.set_xticklabels(finalData["Individuals"], rotation=45, fontsize = 10, fontstyle="italic")
             ax.spines["right"].set_visible(False)
             ax.spines["top"].set_visible(False)
             ax.spines["left"].set_visible(False)
@@ -171,14 +171,14 @@ if val is not None:
 
             for i, individual in enumerate(finalData["Individuals"]):
                 ax.bar(x[i], finalData["incentiveLogic2"][i], width, label=individual, color=colors[i])
-                ax.text(x[i], finalData["incentiveLogic2"][i] + 5, str(finalData["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="semibold")
+                ax.text(x[i], finalData["incentiveLogic2"][i] + 5, str(finalData["incentiveLogic2"][i]), ha="center", fontsize=10, fontweight="normal", fontstyle="oblique")
 
 
             ax.set_xlabel("Individuals")
             #ax.set_ylabel("Incentives")
             ax.set_title("Comparison of Incentive Logic")
             ax.set_xticks(x)
-            ax.set_xticklabels(finalData["Individuals"], rotation=45, fontsize = 10)
+            ax.set_xticklabels(finalData["Individuals"], rotation=45, fontsize = 10, fontstyle="italic")
             ax.spines["right"].set_visible(False)
             ax.spines["top"].set_visible(False)
             ax.spines["bottom"].set_visible(False)
